@@ -18,10 +18,16 @@
     </properties>
     <developers>
         <developer>
+            <roles>
+                <role>Primary developer</role>
+            </roles>
             <name>Brian Harris</name>
             <email>brianfromoregon@gmail.com</email>
         </developer>
         <developer>
+            <roles>
+                <role>Developer</role>
+            </roles>
             <name>Rugal Bernstein</name>
             <email>rugal.bernstein.0@gmail.com</email>
         </developer>
