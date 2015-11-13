@@ -10,10 +10,14 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 
+/**
+ *
+ * @author Brian, Rugal Bernstein
+ */
 public class TrieViewer extends JFrame
 {
 
-    private ViewableTrie trie;
+    private final ViewableTrie trie;
 
     public TrieViewer()
     {
@@ -43,18 +47,18 @@ public class TrieViewer extends JFrame
      * a series of characters surrounded by whitespace.
      *
      * @param f A file containing words.
+     *
+     * @throws java.io.IOException           When unable to read from file
+     * @throws java.io.FileNotFoundException When no file found
      */
-    public void addToDictionary(InputStream f)
-        throws IOException, FileNotFoundException
+    public void addToDictionary(InputStream f) throws IOException, FileNotFoundException
     {
         long t = System.currentTimeMillis();
         final int bufSize = 1000;
         int read;
         int numWords = 0;
-        InputStreamReader fr = null;
-        try
+        try (InputStreamReader fr = new InputStreamReader(f))
         {
-            fr = new InputStreamReader(f);
             char[] buf = new char[bufSize];
             while ((read = fr.read(buf)) != -1)
             {
@@ -67,27 +71,7 @@ public class TrieViewer extends JFrame
                 }
             }
         }
-        finally
-        {
-            if (fr != null)
-            {
-                try
-                {
-                    fr.close();
-                }
-                catch (IOException e)
-                {
-                }
-            }
-        }
         System.out.println("Read from file and inserted " + numWords + " words into trie in "
             + (System.currentTimeMillis() - t) / 1000.0 + " seconds.");
-    }
-
-    public static void main(String[] args) throws Exception
-    {
-        TrieViewer tv = new TrieViewer();
-        tv.addToDictionary(Thread.currentThread().getContextClassLoader().getResourceAsStream("bible.txt"));
-        tv.go();
     }
 }
