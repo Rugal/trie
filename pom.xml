@@ -16,6 +16,28 @@
         <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
         <maven.compiler.testSource>1.8</maven.compiler.testSource>
     </properties>
+    <developers>
+        <developer>
+            <name>Brian Harris</name>
+            <email>brianfromoregon@gmail.com</email>
+        </developer>
+        <developer>
+            <name>Rugal Bernstein</name>
+            <email>rugal.bernstein.0@gmail.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git@github.com:Rugal/trie.git</connection>
+        <url>git@github.com:Rugal/trie.git</url>
+        <developerConnection>scm:git:git@github.com:Rugal/trie.git</developerConnection>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -74,7 +96,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.5</version>
-                <!--                <executions>
+                <executions>
                     <execution>
                         <id>sign-artifacts</id>
                         <phase>verify</phase>
@@ -82,7 +104,7 @@
                             <goal>sign</goal>
                         </goals>
                     </execution>
-                </executions>-->
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
