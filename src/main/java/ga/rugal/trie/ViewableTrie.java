@@ -1,4 +1,4 @@
-package net.bcharris.trie;
+package ga.rugal.trie;
 
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;

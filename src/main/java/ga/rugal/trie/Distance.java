@@ -1,4 +1,4 @@
-package net.bcharris.trie;
+package ga.rugal.trie;
 
 class Distance
 {
