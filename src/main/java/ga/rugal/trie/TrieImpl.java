@@ -200,17 +200,17 @@ class TrieNode
         // allocate on demand
         if (children == null)
         {
-            children = new HashMap<Character, TrieNode>();
+            children = new HashMap<>();
         }
 
-        char c = s.charAt(pos);
-        TrieNode n = children.get(c);
+        char ch = s.charAt(pos);
+        TrieNode n = children.get(ch);
 
-        // make sure we have a child with char c
+        // make sure we have a child with char ch
         if (n == null)
         {
-            n = new TrieNode(c);
-            children.put(c, n);
+            n = new TrieNode(ch);
+            children.put(ch, n);
         }
 
         // if we are the last node in the sequence of chars
@@ -233,8 +233,8 @@ class TrieNode
             return false;
         }
 
-        char c = s.charAt(pos);
-        TrieNode n = children.get(c);
+        char ch = s.charAt(pos);
+        TrieNode n = children.get(ch);
 
         if (n == null)
         {
@@ -257,7 +257,7 @@ class TrieNode
         if (n.children == null && n.occurances == 0)
         {
             children.remove(n.c);
-            if (children.size() == 0)
+            if (children.isEmpty())
             {
                 children = null;
             }

@@ -1,12 +1,16 @@
 package ga.rugal.trie;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -19,6 +23,8 @@ public class TrieTest
     {
         "bob", "a", "bat", "ass", "za", "z", "z", "Bob"
     };
+
+    private static final String DICTIONARY = "test.dic";
 
     private static Map<String, Integer> uniqueWords;
 
@@ -43,6 +49,20 @@ public class TrieTest
     }
 
     @Test
+    public void dict() throws FileNotFoundException
+    {
+        File file = new File(DICTIONARY);
+        Scanner scanner = new Scanner(file);
+        Trie t = new TrieImpl(false);
+        while (scanner.hasNext())
+        {
+            String next = scanner.next();
+            t.insert(next);
+        }
+    }
+
+    @Test
+    @Ignore
     public void all()
     {
         int iters = 100000;
