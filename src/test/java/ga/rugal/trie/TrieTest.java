@@ -34,10 +34,10 @@ public class TrieTest
     public void setUp() throws Exception
     {
         trie = new TrieImpl(true);
-        uniqueWords = new HashMap<String, Integer>();
-        for (int i = 0; i < words.length; i++)
+        uniqueWords = new HashMap<>();
+        for (String word : words)
         {
-            uniqueWords.put(words[i], 0);
+            uniqueWords.put(word, 0);
         }
     }
 
