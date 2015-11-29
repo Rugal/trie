@@ -90,8 +90,8 @@ public class TrieImpl implements Trie
         {
             return false;
         }
-
-        return root.lookup(caseSensitive ? word : word.toLowerCase(), 0) != null;
+        TrieNode node = root.lookup(caseSensitive ? word : word.toLowerCase(), 0);
+        return node != null && node.occurances > 0;
     }
 
     @Override

@@ -49,6 +49,7 @@ public class TrieTest
     }
 
     @Test
+    @Ignore
     public void dict() throws FileNotFoundException
     {
         File file = new File(DICTIONARY);
