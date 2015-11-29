@@ -130,23 +130,25 @@ public class TrieImpl implements Trie
             }
             if (cur.node.children != null)
             {
+                //traverse all possible children as word
                 for (char c : cur.node.children.keySet())
                 {
+                    //current node
                     tmp = cur.node.children.get(c);
+                    //current word
                     String tWord = cur.word + c;
+                    //current distance
                     int distance = Distance.LD(tWord, word);
 
                     // only add possibly better matches to the pqueue
                     if (distance <= cur.distance)
                     {
-                        if (tmp.occurances == 0)
+                        boolean exists = false;
+                        if (tmp.occurances != 0)
                         {
-                            pq.add(new DYMNode(tmp, distance, tWord, false));
+                            exists = true;
                         }
-                        else
-                        {
-                            pq.add(new DYMNode(tmp, distance, tWord, true));
-                        }
+                        pq.add(new DYMNode(tmp, distance, tWord, exists));
                     }
                 }
             }
